@@ -1,0 +1,10 @@
+# Students routes
+### Checks if the student already has the certification
+POST http://localhost:8085/students/verifyIfHasCertification HTTP/1.1
+Host: localhost:8085
+Content-Type: application/json
+
+{
+  "email": "johndoe@email.com",
+  "technology": "java"
+}
