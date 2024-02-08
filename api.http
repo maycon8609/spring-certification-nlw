@@ -8,3 +8,9 @@ Content-Type: application/json
   "email": "johndoe@email.com",
   "technology": "java"
 }
+
+# Questions routes
+### Get all the questions from a technology
+GET http://localhost:8085/questions/technology/JAVA HTTP/1.1
+Host: localhost:8085
+Content-Type: application/json
