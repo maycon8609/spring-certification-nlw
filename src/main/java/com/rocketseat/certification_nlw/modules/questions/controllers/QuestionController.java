@@ -18,35 +18,35 @@ import com.rocketseat.certification_nlw.modules.questions.repositories.QuestionR
 @RestController
 @RequestMapping("/questions")
 public class QuestionController {
-  @Autowired
-  private QuestionRepository questionRepository;
+    @Autowired
+    private QuestionRepository questionRepository;
 
-  @GetMapping("/technology/{technology}")
-  public List<QuestionResultDTO> findByTecnology(@PathVariable String technology) {
-    var result = this.questionRepository.findByTechnology(technology);
+    @GetMapping("/technology/{technology}")
+    public List<QuestionResultDTO> findByTechnology(@PathVariable String technology) {
+        var result = this.questionRepository.findByTechnology(technology);
 
-    var toMap = result.stream().map(question -> mapQuestionToDTO(question))
-      .collect(Collectors.toList());
-    return toMap;
-  }
+        var toMap = result.stream().map(question -> mapQuestionToDTO(question))
+            .collect(Collectors.toList());
+        return toMap;
+    }
 
-  static QuestionResultDTO mapQuestionToDTO(QuestionEntity question) {
-    var questionResultDTO = QuestionResultDTO.builder()
-      .id(question.getId())
-      .technology(question.getTechnology())
-      .description(question.getDescription()).build();
+    static QuestionResultDTO mapQuestionToDTO(QuestionEntity question) {
+        var questionResultDTO = QuestionResultDTO.builder()
+            .id(question.getId())
+            .technology(question.getTechnology())
+            .description(question.getDescription()).build();
 
-    List<AlternativesResultDTO> alternativesResultDTO = question.getAlternatives()
-      .stream().map(alternative -> mapAlternativeDTO(alternative))
-      .collect(Collectors.toList());
-    
-    questionResultDTO.setAlternatives(alternativesResultDTO);
-    return questionResultDTO;
-  }
+        List<AlternativesResultDTO> alternativesResultDTO = question.getAlternatives()
+            .stream().map(alternative -> mapAlternativeDTO(alternative))
+            .collect(Collectors.toList());
 
-  static AlternativesResultDTO mapAlternativeDTO(AlternativesEntity alternativesResultDTO) {
-    return AlternativesResultDTO.builder()
-      .id(alternativesResultDTO.getId())
-      .description(alternativesResultDTO.getDescription()).build();
-  }
+        questionResultDTO.setAlternatives(alternativesResultDTO);
+        return questionResultDTO;
+    }
+
+    static AlternativesResultDTO mapAlternativeDTO(AlternativesEntity alternativesResultDTO) {
+        return AlternativesResultDTO.builder()
+            .id(alternativesResultDTO.getId())
+            .description(alternativesResultDTO.getDescription()).build();
+    }
 }

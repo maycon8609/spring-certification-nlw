@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class QuestionResultDTO {
-  private UUID id;
-  private String technology;
-  private String description;
-  private List<AlternativesResultDTO> alternatives;
+    private UUID id;
+    private String technology;
+    private String description;
+    private List<AlternativesResultDTO> alternatives;
 }

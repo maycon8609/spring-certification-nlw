@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.rocketseat</groupId>
 	<artifactId>certification_nlw</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>certification_nlw</name>
-	<description>Trilha de java - nlw</description>
+	<description>Nlw Expert Java</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -22,13 +22,6 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.7.1</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.2.2</version>
 		</dependency>
 
 		<dependency>
@@ -52,6 +45,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		
 	</dependencies>
 
 	<build>
@@ -66,6 +66,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				
 				</configuration>
 			</plugin>
 		</plugins>
